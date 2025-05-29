@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">SpaceRoads</string>
+    <string name="Left">Left</string>
+    <string name="Right">Right</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send">send</string>
+    <string name="please_enter_location">Please enter Location</string>
+    <string name="main_menu">Main Menu</string>
+</resources>

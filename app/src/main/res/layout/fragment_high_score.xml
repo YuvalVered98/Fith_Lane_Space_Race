@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context=".ui.ScoresFragment">
+
+<!--    <com.google.android.material.textfield.TextInputEditText-->
+<!--        android:id="@+id/highscore_ET_text"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:inputType="text"-->
+<!--        android:hint="@string/please_enter_location" />-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scores_LST_highScores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="8dp" />
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/highscore_BTN_semd"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/send"-->
+<!--        android:layout_below="@id/highscore_ET_text"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="@dimen/button_margin"-->
+<!--        />-->
+
+
+
+</RelativeLayout>

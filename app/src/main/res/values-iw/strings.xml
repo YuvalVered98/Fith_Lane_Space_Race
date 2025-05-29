@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Left">שמאלה</string>
+    <string name="Right">ימינה</string>
+    <string name="hello_blank_fragment">שלום</string>
+    <string name="send">שלח</string>
+    <string name="please_enter_location">הכנס מיקום</string>
+    <string name="main_menu">דף הבית</string>
+</resources>
