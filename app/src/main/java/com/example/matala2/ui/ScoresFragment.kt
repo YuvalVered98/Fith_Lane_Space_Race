@@ -43,7 +43,6 @@ class ScoresFragment : Fragment() {
     private fun refreshHighScores() {
         val updatedScores = SharedPreferencesManagerV3.getHighScores()
         (scores_LST_highScores.adapter as? HighScoreAdapter)?.let { adapter ->
-            // יוצרים adapter חדש עם הנתונים העדכניים
             scores_LST_highScores.adapter = HighScoreAdapter(updatedScores) { score ->
                 callback?.highScoreItemClicked(score.lat, score.lon)
             }

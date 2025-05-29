@@ -6,4 +6,10 @@
     <string name="send">send</string>
     <string name="please_enter_location">Please enter Location</string>
     <string name="main_menu">Main Menu</string>
+    <string name="Activity_Score_enter_your_name">Enter your name</string>
+    <string name="save_score_button">Save Score</string>
+    <string name="sensor_mode">Sensor Mode</string>
+    <string name="slow_button">Button Mode - Slow</string>
+    <string name="fast_mode">Button Mode - Fast</string>
+    <string name="high_score">High Scores</string>
 </resources>

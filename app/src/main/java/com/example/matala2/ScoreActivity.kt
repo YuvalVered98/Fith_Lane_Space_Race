@@ -22,16 +22,13 @@ import com.google.android.gms.location.LocationServices
 import android.util.Log
 
 
-
 class ScoreActivity : AppCompatActivity() {
 
-    private lateinit var score_LBL_status:MaterialTextView
+    private lateinit var score_LBL_status: MaterialTextView
     private val LOCATION_PERMISSION_REQUEST_CODE = 1001
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var currentLat: Double = 0.0
     private var currentLon: Double = 0.0
-    private lateinit var locationCallback: com.google.android.gms.location.LocationCallback
-    private lateinit var locationRequest: com.google.android.gms.location.LocationRequest
     private lateinit var saveButton: Button
 
 
@@ -44,20 +41,17 @@ class ScoreActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//        SharedPreferencesManagerV3.putHighScores(emptyList())
-
+//        SharedPreferencesManagerV3.putHighScores(emptyList()) - Code to reset the high score table
         findViews()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
         initViews()
         checkAndRequestLocationPermission(saveButton)
-
-//        checkAndRequestLocationPermission()
-
     }
+
     private fun findViews() {
         score_LBL_status = findViewById(R.id.score_LBL_status)
     }
+
     private fun initViews() {
         val bundle: Bundle? = intent.extras
 
@@ -70,31 +64,22 @@ class ScoreActivity : AppCompatActivity() {
             append("\n")
             append(scoreStr)
         }
-
         val section: View = findViewById(R.id.score_LAYOUT_enter_name_section)
         val nameInput: EditText = findViewById(R.id.score_EDT_name)
         saveButton = findViewById(R.id.score_BTN_save)
-
+        val backToMenuButton: Button = findViewById(R.id.score_BTN_back_to_menu)
+        backToMenuButton.setOnClickListener {
+            finish()
+        }
         if (SharedPreferencesManagerV3.isEligibleForTop10(scoreInt)) {
             section.visibility = View.VISIBLE
-            saveButton.isEnabled = false // ✅ שורה שנוספה — הכפתור מושבת בהתחלה
-
-            Log.d("debug", "📍 Trying to get last known location...")
-
-
-
-            val backToMenuButton: Button = findViewById(R.id.score_BTN_back_to_menu)
-            backToMenuButton.setOnClickListener {
-                finish() // חוזר למסך הקודם (התפריט הראשי)
-            }
-
+            saveButton.isEnabled = false
             saveButton.setOnClickListener {
                 val name = nameInput.text.toString().trim()
                 if (name.length >= 2) {
                     val lat = currentLat
                     val lon = currentLon
                     val timestamp = System.currentTimeMillis()
-
                     val newRecord = ScoreRecord(name, scoreInt, lat, lon, timestamp)
                     SharedPreferencesManagerV3.addHighScoreIfTop10(newRecord)
 
@@ -106,8 +91,8 @@ class ScoreActivity : AppCompatActivity() {
 
     private fun checkAndRequestLocationPermission(saveButton: Button) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED) {
-
+            != PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
@@ -124,11 +109,16 @@ class ScoreActivity : AppCompatActivity() {
 
     @SuppressLint("MissingPermission")
     private fun requestCurrentLocation() {
-        val hasFine = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-        val hasCoarse = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        val hasFine = ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val hasCoarse = ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
 
         if (!hasFine && !hasCoarse) {
-            Log.d("debug", "❌ Permissions not granted - cannot request location updates")
             return
         }
 
@@ -144,17 +134,11 @@ class ScoreActivity : AppCompatActivity() {
                 if (location != null) {
                     currentLat = location.latitude
                     currentLon = location.longitude
-                    Log.d("debug", "📍 Got LIVE location: $currentLat , $currentLon")
                     saveButton.isEnabled = true
-                } else {
-                    Log.d("debug", "⚠️ Live location is still null")
                 }
-
-                // אפשר להפסיק מאזינים מיידית
                 fusedLocationClient.removeLocationUpdates(this)
             }
         }
-
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, mainLooper)
     }
 
@@ -169,32 +153,33 @@ class ScoreActivity : AppCompatActivity() {
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation()
-
             }
         }
     }
 
     private fun getLastLocation() {
-        val hasFine = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-        val hasCoarse = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-
-        Log.d("debug", "🔒 Permissions - Fine: $hasFine, Coarse: $hasCoarse")
-
+        val hasFine = ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val hasCoarse = ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
         if (!hasFine && !hasCoarse) {
-            Log.d("debug", "❌ Permissions not granted - cannot get location")
             return
         }
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             if (location == null) {
-                Log.d("debug", "⚠️ Location is null - perhaps emulator didn't receive GPS yet")
+                Log.d("debug", "Location is null - perhaps emulator didn't receive GPS yet")
             } else {
                 currentLat = location.latitude
                 currentLon = location.longitude
-                Log.d("debug", "✅ Got location: $currentLat , $currentLon")
+                Log.d("debug", "Got location: $currentLat , $currentLon")
             }
         }.addOnFailureListener { e ->
-            Log.d("debug", "❌ Failed to get location: ${e.message}")
+            Log.d("debug", "Failed to get location: ${e.message}")
         }
     }
 

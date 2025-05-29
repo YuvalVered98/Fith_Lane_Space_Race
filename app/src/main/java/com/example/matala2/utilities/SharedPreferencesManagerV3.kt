@@ -13,14 +13,14 @@ class SharedPreferencesManagerV3 private constructor(context: Context) {
             Context.MODE_PRIVATE
         )
 
-    companion object{
+    companion object {
         @Volatile
         private var instance: SharedPreferencesManagerV3? = null
         private val MAX_SCORES = 10
 
 
-        fun init(context: Context): SharedPreferencesManagerV3{
-            return instance ?: synchronized(this){
+        fun init(context: Context): SharedPreferencesManagerV3 {
+            return instance ?: synchronized(this) {
                 instance ?: SharedPreferencesManagerV3(context).also { instance = it }
             }
         }
@@ -36,6 +36,7 @@ class SharedPreferencesManagerV3 private constructor(context: Context) {
             val type = object : TypeToken<List<ScoreRecord>>() {}.type
             return Gson().fromJson(json, type)
         }
+
         fun putHighScores(highScores: List<ScoreRecord>) {
             val json = Gson().toJson(highScores)
             instance?.sharedPreferences?.edit()?.putString("high_scores", json)?.apply()
@@ -53,30 +54,7 @@ class SharedPreferencesManagerV3 private constructor(context: Context) {
                 highScores.removeAt(highScores.lastIndex)
 
             }
-
             putHighScores(highScores)
         }
-
-
-        fun getInstance(): SharedPreferencesManagerV3 {
-            return instance ?: throw IllegalStateException(
-                "SharedPreferencesManagerV3 must be initialized by calling init(context) before use."
-            )
-        }
-    }
-
-
-    fun putString(key: String, value: String) {
-        with(sharedPreferences.edit()) {
-            putString(key, value)
-            apply()
-        }
-    }
-
-    fun getString(key: String, defaultValue: String): String {
-        return sharedPreferences
-            .getString(
-                key, defaultValue
-            ) ?: defaultValue
     }
 }

@@ -46,8 +46,6 @@ class TopScoresActivity : AppCompatActivity(), Callback_HighScoreItemClicked {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_FRAME_list, ScoresFragment())
             .commit()
-
-        // mapFragment נטען רק בלחיצה על שיא - לא מראש
     }
 
     private fun handleClicks() {

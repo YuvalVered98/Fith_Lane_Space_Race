@@ -10,50 +10,50 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/score_LBL_status"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/Zero"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/name_size"
         android:gravity="center"
         android:text="TextView"
         android:textSize="@dimen/status_size"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/score_LAYOUT_enter_name_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="@dimen/Activity_Score_Enter_Name"
         android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/score_LBL_status"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/score_LBL_status">
 
         <EditText
             android:id="@+id/score_EDT_name"
-            android:layout_width="250dp"
+            android:layout_width="@dimen/Activity_Score_Edit_text"
             android:layout_height="wrap_content"
-            android:hint="Enter your name" />
+            android:hint="@string/Activity_Score_enter_your_name" />
 
         <Button
             android:id="@+id/score_BTN_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Score"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="@dimen/main_menu_button_margin"
+            android:text="@string/save_score_button" />
     </LinearLayout>
 
     <Button
         android:id="@+id/score_BTN_back_to_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/Activity_Score_Enter_Name"
         android:text="@string/main_menu"
-        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

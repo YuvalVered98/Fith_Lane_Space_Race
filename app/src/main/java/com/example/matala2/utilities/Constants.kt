@@ -4,7 +4,6 @@ class Constants {
 
     object Timer {
         var DELAY: Long = 1_000L
-//        const val CHICKEN_DELAY = 333L
     }
 
     object GameLogic {
@@ -12,7 +11,7 @@ class Constants {
         const val NUM_COLUMNS: Int = 5
         const val NUM_ROWS: Int = 5
         const val TOTAL_CHICKENS: Int = NUM_COLUMNS * NUM_ROWS
-        const val TIME_SCORE = 1 // כמה נקודות לכל שנייה
+        const val TIME_SCORE = 1
         const val SLOW_SPEED = 1000L
         const val FAST_SPEED = 400L
 

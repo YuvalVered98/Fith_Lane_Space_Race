@@ -62,18 +62,18 @@ class SignalManager private constructor(context: Context) {
                     100,
                     200,
                     100,
-                    200,
-                    300,
-                    500,
-                    100,
-                    500,
-                    100,
-                    500,
-                    300,
-                    200,
-                    100,
-                    200,
-                    100,
+//                    200,
+//                    300,
+//                    500,
+//                    100,
+//                    500,
+//                    100,
+//                    500,
+//                    300,
+//                    200,
+//                    100,
+//                    200,
+//                    100,
                     200
                 )
 
@@ -82,14 +82,6 @@ class SignalManager private constructor(context: Context) {
                         SOSPattern,
                         -1
                     )
-
-                val oneShotVibrationEffect =
-                    VibrationEffect.createOneShot(
-                        500,
-                        VibrationEffect.DEFAULT_AMPLITUDE
-                    )
-
-//                vibrator.vibrate(oneShotVibrationEffect)
                 vibrator.vibrate(waveFormVibrationEffect)
             } else {
                 vibrator.vibrate(500)

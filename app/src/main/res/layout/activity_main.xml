@@ -83,11 +83,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="0dp"
+            android:layout_margin="@dimen/Zero"
             android:backgroundTint="@color/blue200"
             android:clickable="true"
-            app:icon="@drawable/stop"
             android:contentDescription="Stop game"
+            app:icon="@drawable/stop"
             app:iconTint="@color/text_color" />
 
 
@@ -97,11 +97,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="0dp"
+            android:layout_margin="@dimen/Zero"
             android:backgroundTint="@color/blue200"
             android:clickable="true"
-            app:icon="@drawable/play"
             android:contentDescription="Play game"
+            app:icon="@drawable/play"
             app:iconTint="@color/text_color" />
         <!-- addon - end -->
 
@@ -118,35 +118,35 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Rocket0"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/rocketlast" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Rocket1"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/rocketlast" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Rocket2"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/rocketlast" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Rocket3"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/rocketlast" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Rocket4"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/rocketlast" />
@@ -154,46 +154,45 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="520dp"
+        android:layout_marginBottom="@dimen/layout_bottom"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Chicken0"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken1"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken2"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken3"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken4"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
@@ -209,35 +208,35 @@
 
         <ImageView
             android:id="@+id/Chicken5"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken6"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken7"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken8"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken9"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
@@ -247,41 +246,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="@dimen/layout_bottom_2"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Chicken10"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken11"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken12"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken13"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken14"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
@@ -291,41 +290,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="@dimen/layout_bottom_3"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Chicken15"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken16"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken17"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken18"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken19"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
@@ -335,41 +334,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="@dimen/Top_Score_Button_Margin"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Chicken20"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken21"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken22"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken23"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
 
         <ImageView
             android:id="@+id/Chicken24"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/alien" />
@@ -379,41 +378,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="520dp"
+        android:layout_marginBottom="@dimen/layout_bottom"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Coin0"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin1"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin2"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin3"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin4"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
@@ -423,41 +422,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="420dp"
+        android:layout_marginBottom="@dimen/coin_layout_bottom"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Coin5"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin6"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin7"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin8"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin9"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
@@ -467,41 +466,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="@dimen/layout_bottom_2"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Coin10"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin11"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin12"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin13"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin14"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
@@ -511,41 +510,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="@dimen/layout_bottom_3"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Coin15"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin16"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin17"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin18"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin19"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
@@ -555,41 +554,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="@dimen/margin_buttom"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/Coin20"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin21"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin22"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin23"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />
 
         <ImageView
             android:id="@+id/Coin24"
-            android:layout_width="@dimen/rocket_width_dimens"
+            android:layout_width="@dimen/Zero"
             android:layout_height="@dimen/rocket_height_dimens"
             android:layout_weight="1"
             app:srcCompat="@drawable/star" />

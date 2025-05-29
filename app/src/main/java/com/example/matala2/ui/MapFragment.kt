@@ -17,7 +17,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private var lat: Double = 0.0
     private var lon: Double = 0.0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lat = arguments?.getDouble("lat") ?: 0.0

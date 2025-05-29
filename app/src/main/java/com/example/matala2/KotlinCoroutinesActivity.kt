@@ -17,7 +17,6 @@ import com.example.matala2.logic.GameManager
 import com.example.matala2.utilities.Constants
 import com.example.matala2.utilities.SignalManager
 import com.example.matala2.utilities.SingleSoundPlayer
-import com.example.matala2.utilities.TimeFormatter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -25,36 +24,26 @@ import com.example.matala2.utilities.TiltCallback
 import com.example.matala2.utilities.TiltDetector
 
 
-class KotlinCoroutinesActivity : AppCompatActivity(){
+class KotlinCoroutinesActivity : AppCompatActivity() {
 
     private lateinit var chickens: Array<AppCompatImageView>
-
     private lateinit var rockets: Array<AppCompatImageView>
-
     private lateinit var main_LBL_score: MaterialTextView
-
     private lateinit var main_IMG_hearts: Array<AppCompatImageView>
-
     private lateinit var main_FAB_left: ExtendedFloatingActionButton
-
     private lateinit var main_FAB_right: ExtendedFloatingActionButton
-
     private lateinit var tiltDetector: TiltDetector
-
     private lateinit var coins: Array<AppCompatImageView>
-
-    private lateinit var gameMode: String
-
     private lateinit var gameManager: GameManager
-
     private var isGameActive = true
-
     private lateinit var main_FAB_stop: ExtendedFloatingActionButton
     private lateinit var main_FAB_play: ExtendedFloatingActionButton
     private var startTime: Long = 0
     private var stopTime: Long = 0
     private var timerOn: Boolean = false
     private lateinit var timerJob: Job
+
+
     private fun updateTimerUI(timeInMillis: Long) {
         val fullScore = gameManager.getScoreWithTime(timeInMillis)
         main_LBL_score.text = "Score: $fullScore"
@@ -71,16 +60,19 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
             insets
         }
         findViews()
-        val gameMode = intent.getStringExtra(Constants.BundleKeys.GAME_MODE) ?: Constants.GameMode.BUTTON_SLOW
+        val gameMode =
+            intent.getStringExtra(Constants.BundleKeys.GAME_MODE) ?: Constants.GameMode.BUTTON_SLOW
         when (gameMode) {
             Constants.GameMode.SENSOR -> {
                 initTiltDetector()
                 main_FAB_left.visibility = View.GONE
                 main_FAB_right.visibility = View.GONE
             }
+
             Constants.GameMode.BUTTON_SLOW -> {
                 initButtonControls(speed = Constants.GameLogic.SLOW_SPEED)
             }
+
             Constants.GameMode.BUTTON_FAST -> {
                 initButtonControls(speed = Constants.GameLogic.FAST_SPEED)
             }
@@ -157,42 +149,35 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
         startTime = System.currentTimeMillis()
         main_FAB_play.setOnClickListener { v: View -> startTimer() }
         main_FAB_stop.setOnClickListener { v: View -> stopTimer() }
-        main_FAB_left.setOnClickListener{ view: View -> answerClicked(false)}
-        main_FAB_right.setOnClickListener{ view: View -> answerClicked(true)}
+        main_FAB_left.setOnClickListener { view: View -> answerClicked(false) }
+        main_FAB_right.setOnClickListener { view: View -> answerClicked(true) }
         refreshUI()
     }
 
     private fun refreshUI() {
-        if(gameManager.isGameOver){
-            Log.d("Game Status", "Game Over!" + main_LBL_score.text)
+        if (gameManager.isGameOver) {
             val finalScore = gameManager.getScoreWithTime(System.currentTimeMillis() - startTime)
             changeActivity("😓 Game Over", finalScore.toString())
 
-        } else if (gameManager.isGameEnded) {// Won!
-            Log.d("Game Status", "You Won!" + main_LBL_score.text)
-            val finalScore = gameManager.getScoreWithTime(System.currentTimeMillis() - startTime)
-            changeActivity("🎉 You Won!", finalScore.toString())
-
-        } else { // Ongoing game:
-            for (rocket in gameManager.allRockets){
-                if (rocket.isView == false){
+        }
+        else { // Ongoing game:
+            for (rocket in gameManager.allRockets) {
+                if (rocket.isView == false) {
                     rockets[rocket.index].visibility = View.INVISIBLE
-                }
-                else
+                } else
                     rockets[rocket.index].visibility = View.VISIBLE
             }
-            for (chicken in gameManager.allChickens){
-                if (!chicken.isView){
+            for (chicken in gameManager.allChickens) {
+                if (!chicken.isView) {
                     chickens[chicken.index].visibility = View.INVISIBLE
-                }
-                else
+                } else
                     chickens[chicken.index].visibility = View.VISIBLE
             }
             for (coin in gameManager.allCoins) {
                 coins[coin.index].visibility = if (coin.isView) View.VISIBLE else View.INVISIBLE
             }
 
-            if(gameManager.isHit()){
+            if (gameManager.isHit()) {
                 SingleSoundPlayer(this).playSound(R.raw.explosion)
                 SignalManager.getInstance().toast("God burned!!!")
                 SignalManager.getInstance().vibrate()
@@ -200,35 +185,35 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
             if (gameManager.isCoinHit()) {
                 SignalManager.getInstance().toast("💰 Coin collected!")
             }
-            if(gameManager.wrongAnswers != 0){
+            if (gameManager.wrongAnswers != 0) {
                 main_IMG_hearts[main_IMG_hearts.size - gameManager.wrongAnswers]
                     .visibility = View.INVISIBLE
             }
             val elapsedMillis = System.currentTimeMillis() - startTime
             val fullScore = gameManager.getScoreWithTime(elapsedMillis)
             main_LBL_score.text = "Score: $fullScore"
-
             main_IMG_hearts
         }
     }
 
-    fun resetLives(){
-        for (heart in main_IMG_hearts){
+    fun resetLives() {
+        for (heart in main_IMG_hearts) {
             heart.visibility = View.VISIBLE
         }
     }
+
     private fun changeActivity(message: String, score: CharSequence) {
         val intent = Intent(this, ScoreActivity::class.java)
         var bundle = Bundle()
-        bundle.putString(Constants.BundleKeys.MESSAGE_KEY , message)
-        bundle.putCharSequence(Constants.BundleKeys.SCORE_KEY , score)
+        bundle.putString(Constants.BundleKeys.MESSAGE_KEY, message)
+        bundle.putCharSequence(Constants.BundleKeys.SCORE_KEY, score)
         intent.putExtras(bundle)
         startActivity(intent)
         finish()
     }
 
-    private fun answerClicked(expected: Boolean){
-        if (!isGameActive) return // ❌ חסום פעולה כשהמשחק לא פעיל
+    private fun answerClicked(expected: Boolean) {
+        if (!isGameActive) return
 
         gameManager.checkAnswer(expected)
         refreshUI()
@@ -248,8 +233,6 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
                 while (timerOn) {
                     val elapsed = System.currentTimeMillis() - startTime
                     updateTimerUI(elapsed)
-//                    gameManager.updateChickens()
-//                    gameManager.updateCoins()
                     gameManager.updateMob()
                     refreshUI()
                     delay(Constants.Timer.DELAY)
@@ -258,21 +241,15 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
         }
     }
 
-
-
-
     override fun onResume() {
         super.onResume()
         if (::tiltDetector.isInitialized) {
             tiltDetector.start()
         }
-
-        // הוסף תנאי כדי לא לדרוס את startTime באתחול מלא:
         if (stopTime != 0L) {
             startTime = System.currentTimeMillis() - stopTime
         }
     }
-
 
     override fun onPause() {
         super.onPause()
@@ -285,23 +262,20 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
 
     }
 
-    //addon:
     private fun stopTimer() {
-        if(timerOn) {
+        if (timerOn) {
             timerOn = false
             timerJob.cancel()
             val currentTime: Long = System.currentTimeMillis()
             stopTime = currentTime - startTime
-            isGameActive = false // 🔒 לא ניתן לשחק
+            isGameActive = false
         } else {
             stopTime = 0L
             startTime = System.currentTimeMillis()
             resetLives()
             gameManager.resetGame()
             refreshUI()
-            isGameActive = true // 🔓 חזרה למשחק
+            isGameActive = true
         }
     }
-
-    //addon end
 }

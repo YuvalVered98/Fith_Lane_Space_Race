@@ -27,7 +27,6 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun findViews() {
-
         menu_BTN_sensor = findViewById(R.id.menu_BTN_sensor)
         menu_BTN_slow = findViewById(R.id.menu_BTN_slow)
         menu_BTN_fast = findViewById(R.id.menu_BTN_fast)

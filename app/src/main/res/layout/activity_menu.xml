@@ -11,54 +11,54 @@
         android:id="@+id/menu_LBL_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_margin_top"
         android:text="Choose Game Mode"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/menu_BTN_sensor"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="64dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/menu_BTN_sensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor Mode"
-        app:layout_constraintTop_toBottomOf="@id/menu_LBL_title"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/menu_button_margin_size"
+        android:text="@string/sensor_mode"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_LBL_title" />
 
     <Button
         android:id="@+id/menu_BTN_slow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button Mode - Slow"
-        app:layout_constraintTop_toBottomOf="@id/menu_BTN_sensor"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/slow_button"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_BTN_sensor" />
 
     <Button
         android:id="@+id/menu_BTN_fast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button Mode - Fast"
-        app:layout_constraintTop_toBottomOf="@id/menu_BTN_slow"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/fast_mode"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_BTN_slow" />
 
     <Button
         android:id="@+id/menu_BTN_high_scores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="High Scores"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/menu_BTN_fast"
+        android:layout_marginTop="@dimen/Activity_Score_Enter_Name"
+        android:text="@string/high_score"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/menu_BTN_fast" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
