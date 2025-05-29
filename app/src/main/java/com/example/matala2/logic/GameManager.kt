@@ -40,18 +40,20 @@ class GameManager(private val lifeCount: Int = 3) {
 
 
     fun isHit(): Boolean {
-        if((allRockets[0].isView && allChickens[20].isView) ||
-            (allRockets[1].isView && allChickens[21].isView) ||
-            (allRockets[2].isView && allChickens[22].isView) ||
-            (allRockets[3].isView && allChickens[23].isView) ||
-            (allRockets[4].isView && allChickens[24].isView)) {
-            wrongAnswers++
-            return true
-        } else {
-            return false
-        }
+        val lastRowStart = Constants.GameLogic.TOTAL_CHICKENS - Constants.GameLogic.NUM_COLUMNS
 
+        for (i in 0 until Constants.GameLogic.NUM_COLUMNS) {
+            val rocket = allRockets[i]
+            val chicken = allChickens[lastRowStart + i]
+            if (rocket.isView && chicken.isView) {
+                chicken.isView = false // ✅ מניעת פגיעה כפולה
+                wrongAnswers++
+                return true
+            }
+        }
+        return false
     }
+
     fun resetGame(){
         for (chicken in allChickens){
             chicken.isView = false
@@ -73,17 +75,18 @@ class GameManager(private val lifeCount: Int = 3) {
     }
 
     fun checkAnswer(expected: Boolean){
-        if(expected == false && rocketIndex > 0){
+        if (!expected && rocketIndex > 0){
             allRockets[rocketIndex].isView = false
             rocketIndex--
             allRockets[rocketIndex].isView = true
         }
-        //else: add 1 to wrongAnswers
-        else if(expected == true && rocketIndex <5){
+
+        else if(expected && rocketIndex < allRockets.size - 1){
             allRockets[rocketIndex].isView = false
             rocketIndex++
             allRockets[rocketIndex].isView = true
         }
+
     }
 
     fun isCoinHit(): Boolean {

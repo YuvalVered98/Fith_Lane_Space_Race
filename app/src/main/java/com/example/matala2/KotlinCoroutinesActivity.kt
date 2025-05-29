@@ -47,6 +47,8 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
 
     private lateinit var gameManager: GameManager
 
+    private var isGameActive = true
+
     private lateinit var main_FAB_stop: ExtendedFloatingActionButton
     private lateinit var main_FAB_play: ExtendedFloatingActionButton
     private var startTime: Long = 0
@@ -93,11 +95,15 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
             context = this,
             tiltCallback = object : TiltCallback {
                 override fun onTiltLeft() {
+                    if (!isGameActive) return
                     answerClicked(true)
                 }
+
                 override fun onTiltRight() {
+                    if (!isGameActive) return
                     answerClicked(false)
                 }
+
             }
         )
     }
@@ -222,10 +228,12 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
     }
 
     private fun answerClicked(expected: Boolean){
-        gameManager.checkAnswer(expected)
+        if (!isGameActive) return // ❌ חסום פעולה כשהמשחק לא פעיל
 
+        gameManager.checkAnswer(expected)
         refreshUI()
     }
+
 
     private fun startTimer() {
         if (!timerOn) {
@@ -284,16 +292,16 @@ class KotlinCoroutinesActivity : AppCompatActivity(){
             timerJob.cancel()
             val currentTime: Long = System.currentTimeMillis()
             stopTime = currentTime - startTime
-        }
-        else {
+            isGameActive = false // 🔒 לא ניתן לשחק
+        } else {
             stopTime = 0L
             startTime = System.currentTimeMillis()
             resetLives()
             gameManager.resetGame()
-            main_LBL_score.text = "0"
             refreshUI()
+            isGameActive = true // 🔓 חזרה למשחק
         }
-
     }
+
     //addon end
 }
